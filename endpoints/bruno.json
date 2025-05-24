@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "multivix-7s-2b-pw",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
