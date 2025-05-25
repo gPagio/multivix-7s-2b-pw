@@ -1,6 +1,6 @@
 <?php
 class Product {
-    public static function all() {
+    public static function listAllProducts() {
         // Exemplo estático — depois pode vir do banco
         return [
             ['idProduto' => 1, 'nome' => 'Camiseta Box', 'descricao' => 'Camiseta Box Tech Eco oversized faz parte da nossa nova linha Unknown. Ela tem um comprimento mais curto, torax mais largo e o ombro caído, clássico da modelagem oversized. Gola levemente fechada. O diferencial dela é o caimento perfeito do tecido de viscose mais a modelagem mais curta. Ela é confeccionada em viscose Lenzing Ecovero, garantindo um caimento e um toque premium, com gramatura pesada de 300g/m². Não é uma peça quente, ideal para qualquer dia. Não desbota com o tempo. Anti-odor. Maciez extrema. Caimento perfeito. Design exclusivo.', 'preco' => 139.9],
