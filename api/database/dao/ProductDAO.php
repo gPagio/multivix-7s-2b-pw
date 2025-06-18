@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../utils/ConnectionDB.php';
+require_once __DIR__ . '/../config/ConnectionDB.php';
 
 class ProductDAO {
     private $pdo;

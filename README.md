@@ -16,11 +16,11 @@ Esta é a API que drá vida a plataforma de e-commerce [Street Style & Co](https
 - Certifique-se de ter o [XAMPP](https://www.apachefriends.org/) instalado e configurado.
 
 ### Configuração do Banco de Dados
-- Crie um banco de dados no MySQL com o nome `producao`.
-- Importe o arquivo `producao.sql` localizado na pasta raiz do projeto por meio do `phpMyAdmin` para configurar as tabelas e dados iniciais.
+- O banco é automaticamente criado na primeira requisição enviada a API.
+- Caso queira recria o banco do zero apague o arquivo `.setup_done` na pasta raiz da API.
 
 ### Configuração do Ambiente
-   - Crie um arquivo `.env` na pasta raiz com as configurações do seu ambiente:
+   - Crie um arquivo `.env` na pasta raiz da api com as configurações do seu ambiente:
      ```env
      DB_HOST=host_banco
      DB_PORT=porta_porta

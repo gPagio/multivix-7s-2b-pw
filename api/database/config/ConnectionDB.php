@@ -4,7 +4,7 @@ class ConnectionDB {
 
     public static function getConnection() {
         if (self::$pdo === null) {
-            $env = self::loadEnv(__DIR__ . '/../../../.env');
+            $env = self::loadEnv(__DIR__ . '/../../.env');
 
             try {
                 $host = $env['DB_HOST'];
