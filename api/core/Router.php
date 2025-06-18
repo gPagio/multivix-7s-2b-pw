@@ -1,17 +1,13 @@
 <?php
 class Router {
     private $routes = [];
-    
+
     public function get($path, $callback) {
         $this->addRoute('GET', $path, $callback);
     }
-    
+
     public function post($path, $callback) {
         $this->addRoute('POST', $path, $callback);
-    }
-
-    public function put($path, $callback) {
-        $this->addRoute('PUT', $path, $callback);
     }
 
     public function patch($path, $callback) {
@@ -32,12 +28,13 @@ class Router {
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $method = $_SERVER['REQUEST_METHOD'];
 
-        // LOG: Mostra qual URI está sendo processada
-        //echo "Método: $method<br>URI: $uri<br>";
-
         foreach ($this->routes as $route) {
-            if ($route['method'] === $method && $route['fullPath'] === $uri) {
-                call_user_func($route['callback']);
+            $pattern = preg_replace('#\{[^/]+\}#', '([^/]+)', $route['fullPath']);
+            $pattern = '#^' . $pattern . '$#';
+
+            if ($route['method'] === $method && preg_match($pattern, $uri, $matches)) {
+                array_shift($matches);
+                call_user_func_array($route['callback'], $matches);
                 return;
             }
         }
@@ -46,3 +43,4 @@ class Router {
         echo json_encode(['error' => 'Not found']);
     }
 }
+?>

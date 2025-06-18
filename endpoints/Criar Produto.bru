@@ -1,0 +1,18 @@
+meta {
+  name: Criar Produto
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{urlBase}}/products
+  body: json
+  auth: none
+}
+
+body:json {
+    {
+      "descricao": "Teste",
+      "preco": "159.90"
+    }
+}
