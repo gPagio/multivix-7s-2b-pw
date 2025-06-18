@@ -1,19 +1,11 @@
 <?php
+require_once __DIR__ . '/../utils/Database.php';
+
 class ProductDAO {
     private $pdo;
 
     public function __construct() {
-        $host = 'localhost';
-        $dbname = 'producao';
-        $username = 'root';
-        $password = '';
-
-        try {
-            $this->pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            die("Erro na conexão com o banco de dados: " . $e->getMessage());
-        }
+        $this->pdo = ConnectionDB::getConnection();
     }
 
     // Create
